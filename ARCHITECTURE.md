@@ -118,7 +118,7 @@ system. “No custom MVCC” does not mean “no PostgreSQL MVCC.”
 Keep the schema Rust-native and small:
 
 ```rust
-table! {
+schema! {
     users {
         name: String,
         email: String,
@@ -193,7 +193,7 @@ an internal Missing sentinel for an absent ordinary-index field.
 
 ## 2.3 Generated code
 
-`table!` generates:
+`schema!` generates:
 
 - a zero-sized marker type for each logical table
 - a typed document containing read-only `id` and `revision` metadata
@@ -1152,7 +1152,7 @@ locks or a sequence alone are not safe drop-in replacements.
 
 ```text
 Schema:
-    table!, values!, patch!
+    schema!, values!, patch!
     required, optional, and nullable fields
     typed IDs, fields, ordinary indexes, and unique indexes
 
@@ -1197,7 +1197,7 @@ availability during target-table maintenance.
 
 1. Workspace, physical bootstrap, metadata envelope, IDs, and errors.
 2. Logical values, document envelope, ordered index codec, and property tests.
-3. `table!`, `values!`, `patch!`, generated documents, and compile-fail tests.
+3. `schema!`, `values!`, `patch!`, generated documents, and compile-fail tests.
 4. Writer gate, CRUD, revision allocation, index maintenance, and uniqueness.
 5. Snapshot reads, planner, range scans, ordering, budgets, and cursors.
 6. Complete-revision polling and single-table subscriptions.

@@ -37,7 +37,7 @@ Rustvex.
 One simple starting model is:
 
 ```rust
-table! {
+schema! {
     users {
         email: String,
         password_hash: Bytes,
@@ -156,7 +156,7 @@ apply its access policy to every read and mutation.
 Prefer indexes that begin with an ownership boundary:
 
 ```rust
-table! {
+schema! {
     notes {
         tenant: Id<tenants>,
         owner: Id<users>,
